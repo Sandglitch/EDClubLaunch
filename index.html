@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ED Club Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <div id="login-view">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="brand-logo">EDC<span class="dot">.</span></div>
+                <h2>Member Login</h2>
+                <p>Access your project portfolio and club events.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Student ID</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="e.g. 24CS001">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+            </div>
+
+            <button class="primary-btn" onclick="app.login()">Enter Portal</button>
+        </div>
+    </div>
+
+    <div id="app-interface" class="hidden">
+        
+        <nav class="sidebar">
+            <div class="nav-brand">EDC<span class="dot">.</span></div>
+            
+            <div class="nav-item active" onclick="app.navigate('events', this)">
+                <i class="fas fa-bolt"></i>
+                <span class="nav-text">Events & Feed</span>
+            </div>
+            
+            <div class="nav-item" onclick="app.navigate('projects', this)">
+                <i class="fas fa-code-branch"></i>
+                <span class="nav-text">Project Certs</span>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            
+            <header>
+                <div>
+                    <h1 class="page-title">Welcome, <span id="user-display" class="highlight">Developer</span></h1>
+                    <div class="sub-header">Current Status: Active Member</div>
+                </div>
+                <div class="system-chip">
+                    <span class="indicator"></span> Live Feed
+                </div>
+            </header>
+
+            <section id="view-events" class="view-section active-view">
+                <div class="split-view">
+                    <div>
+                        <h2 class="section-heading">Upcoming Activities</h2>
+                        <div class="card-grid" id="events-container"></div>
+                    </div>
+                    <div>
+                        <h2 class="section-heading">Club Announcements</h2>
+                        <div class="panel-card" id="news-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-projects" class="view-section">
+                <h2 class="section-heading">Verified Project Completions</h2>
+                <div class="card-grid" id="certs-container"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
